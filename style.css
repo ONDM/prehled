@@ -1,18 +1,9 @@
 body
 {
-  font-family: 'font', Arial, sans-serif;
   background-color: #141414;
   height: 100vh;
   overflow: hidden;
   position: relative;
-}
-
-@font-face
-{
-  font-family: 'font';
-  src: url('/font/font.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
 }
 
 .gradient
@@ -59,7 +50,6 @@ body
 
 #nadpis
 {
-  font-family: 'font', Arial, sans-serif;
   color: #d9d9d9;
   font-size: 30px;
   transform: translate(0px, 120px);
@@ -67,7 +57,6 @@ body
 
 button
 {
-  font-family: 'font', Arial, sans-serif;
   display: block;
   justify-content: center;
   margin: 15px auto;
@@ -90,7 +79,6 @@ button:hover
 
 #backbtn, #nextbtn, #prevbtn
 {
-  font-family: 'font', Arial, sans-serif;
   background-color: rgb(0, 0, 0, 0.3);
   transition: background-color 0.3s ease;
   width: 70px;
@@ -127,7 +115,6 @@ button:hover
 
 #content
 {
-  font-family: 'font', Arial, sans-serif;
   margin-top: 20px;
   text-align: left;
 }
