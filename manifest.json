@@ -1,0 +1,17 @@
+{
+  "name": "Přehled příkazů",
+  "short_name": "prehled",
+  "description": "Offline přehled příkazů",
+  "start_url": "/prehled/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons":
+  [
+    {
+      "src": "/prehled/favicon.png",
+      "sizes": "860x899",
+      "type": "image/png"
+    }
+  ]
+}
