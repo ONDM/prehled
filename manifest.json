@@ -1,6 +1,6 @@
 {
-  "name": "Přehled příkazů",
-  "short_name": "prehled",
+  "name": "Prehled",
+  "short_name": "prehled prikazu",
   "description": "Offline přehled příkazů",
   "start_url": "/prehled/",
   "display": "standalone",
