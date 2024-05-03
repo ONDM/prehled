@@ -1,38 +1,38 @@
 const htmlContent =
 [
-  'HTML/html1.jpg',
-  'HTML/html2.jpg',
-  'HTML/html3.jpg',
-  'HTML/html4.jpg',
-  'HTML/html5.jpg',
-  'HTML/html6.jpg',
-  'HTML/html7.jpg',
-  'HTML/html8.jpg',
-  'HTML/html9.jpg'
+  '/prehled/HTML/html1.jpg',
+  '/prehled/HTML/html2.jpg',
+  '/prehled/HTML/html3.jpg',
+  '/prehled/HTML/html4.jpg',
+  '/prehled/HTML/html5.jpg',
+  '/prehled/HTML/html6.jpg',
+  '/prehled/HTML/html7.jpg',
+  '/prehled/HTML/html8.jpg',
+  '/prehled/HTML/html9.jpg'
 ];
 
 const cssContent =
 [
-  'CSS/css1.jpg',
-  'CSS/css2.jpg',
-  'CSS/css3.jpg',
-  'CSS/css4.jpg',
-  'CSS/css5.jpg',
-  'CSS/css6.jpg',
-  'CSS/css7.jpg'
+  '/prehled/CSS/css1.jpg',
+  '/prehled/CSS/css2.jpg',
+  '/prehled/CSS/css3.jpg',
+  '/prehled/CSS/css4.jpg',
+  '/prehled/CSS/css5.jpg',
+  '/prehled/CSS/css6.jpg',
+  '/prehled/CSS/css7.jpg'
 ];
 
 const jsContent =
 [
-  'JS/js1.jpg',
-  'JS/js2.jpg',
-  'JS/js3.jpg',
-  'JS/js4.jpg',
-  'JS/js5.jpg',
-  'JS/js6.jpg',
-  'JS/js7.jpg',
-  'JS/js8.jpg',
-  'JS/js9.jpg'
+  '/prehled/JS/js1.jpg',
+  '/prehled/JS/js2.jpg',
+  '/prehled/JS/js3.jpg',
+  '/prehled/JS/js4.jpg',
+  '/prehled/JS/js5.jpg',
+  '/prehled/JS/js6.jpg',
+  '/prehled/JS/js7.jpg',
+  '/prehled/JS/js8.jpg',
+  '/prehled/JS/js9.jpg'
 ];
 
 const htmlbtn = document.getElementById('htmlbtn');
