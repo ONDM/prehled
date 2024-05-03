@@ -8,6 +8,7 @@ self.addEventListener('install', (event) =>
   {
     return cache.addAll([
       '/prehled/',
+      '/prehled/font.woff2',
       '/prehled/manifest.json',
       '/prehled/style.css',
       '/prehled/script.js',
