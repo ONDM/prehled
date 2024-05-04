@@ -48,6 +48,21 @@ const gradientContainer = document.getElementById('gradient-container');
 let imageIndex = 0;
 let content = [];
 
+// FUNKCE PRO PŘEDČÍTÁNÍ OBRÁZKŮ
+function preloadImages(imageUrls)
+{
+  imageUrls.forEach(url =>
+  {
+    const img = new Image();
+    img.src = url;
+  });
+}
+
+// PŘEDNAČÍTÁNÍ PRO HTML, CSS, JS
+preloadImages(htmlContent);
+preloadImages(cssContent);
+preloadImages(jsContent);
+
 // HTML
 htmlbtn.addEventListener('click', () =>
 {
