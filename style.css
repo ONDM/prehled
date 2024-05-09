@@ -85,8 +85,7 @@ button
 
 button:hover
 {
-  background-color: rgb(0, 0, 0, 0.6);
-  color: rgb(159, 50, 37);
+  background-color: rgb(0, 0, 0, 0.4);
 }
 
 #backbtn, #nextbtn, #prevbtn
@@ -124,11 +123,6 @@ button:hover
 #backbtn:hover, #nextbtn:hover, #prevbtn:hover
 {
   background-color: #212121;
-}
-
-#nextbtn:hover, #prevbtn:hover
-{
-  color: #d08b8b;
 }
 
 #content
