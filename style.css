@@ -124,6 +124,7 @@ button:hover
 #backbtn:hover, #nextbtn:hover, #prevbtn:hover
 {
   background-color: #212121;
+  color: #d9d9d9;
 }
 
 #content
