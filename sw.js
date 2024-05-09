@@ -2,7 +2,6 @@ const cacheName = 'offline-prehled';
 const offlinePage = 'offline.html';
 const assets = [
       '/prehled/',
-      '/prehled/font.woff2',
       '/prehled/manifest.json',
       '/prehled/style.css',
       '/prehled/script.js',
