@@ -85,8 +85,8 @@ button
 
 button:hover
 {
-  background-color: rgb(0, 0, 0, 0.5);
-  color: transparent;
+  background-color: rgb(0, 0, 0, 0.4);
+  color: rgb(159, 50, 37);
 }
 
 #backbtn, #nextbtn, #prevbtn
