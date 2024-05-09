@@ -7,13 +7,13 @@ body
   position: relative;
 }
 
-@font-face
+/*@font-face
 {
   font-family: 'font';
   src: url('/prehled/font.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
-}
+}*/
 
 .gradient
 {
