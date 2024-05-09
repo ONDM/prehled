@@ -1,12 +1,6 @@
-const cacheName = 'prehled-cache-v2';
-
-self.addEventListener('install', (event) =>
-{
-  console.log('Service Worker Installed');
-  event.waitUntil(
-  caches.open(cacheName).then((cache) =>
-  {
-    return cache.addAll([
+const cacheName = 'offline-prehled';
+const offlinePage = 'offline.html';
+const assets = [
       '/prehled/',
       '/prehled/font.woff2',
       '/prehled/manifest.json',
@@ -38,18 +32,28 @@ self.addEventListener('install', (event) =>
       '/prehled/JS/js6.jpg',
       '/prehled/JS/js7.jpg',
       '/prehled/JS/js8.jpg',
-      '/prehled/JS/js9.jpg'
-      ]);
+      '/prehled/JS/js9.jpg',
+];
+
+self.addEventListener('install', event =>
+  {
+  event.waitUntil(
+    caches.open(cacheName).then(cache =>
+      {
+      return cache.addAll(assets);
     })
   );
 });
 
-self.addEventListener('fetch', (event) =>
-{
-  event.respondWith(
-  caches.match(event.request).then((response) =>
+self.addEventListener('fetch', event =>
   {
-    return response || fetch(event.request);
-  })
+  event.respondWith(
+    caches.match(event.request).then(response =>
+      {
+      return response || fetch(event.request);
+      }).catch(() =>
+      {
+      return caches.match(offlinePage);
+    })
   );
 });
