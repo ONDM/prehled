@@ -73,8 +73,7 @@ function resetNadpisPosition()
 // Přednačítání pro HTML, CSS, JS
 function preloadImages(imageUrls)
 {
-  imageUrls.forEach(url =>
-  {
+  imageUrls.forEach(url => {
     const img = new Image();
     img.src = url;
   });
