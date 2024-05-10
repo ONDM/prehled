@@ -253,3 +253,15 @@ function fadeInNadpis()
   }
   requestAnimationFrame(animate);
 }
+
+// SW
+if ('serviceWorker' in navigator)
+{
+  navigator.serviceWorker.register('sw.js').then(() =>
+    {
+      console.log('Service Worker úspěšně spuštěn. Offline režim aktivován.');
+    }).catch(error =>
+    {
+      console.log('Registrace Service Workera selhala:', error);
+    });
+}
