@@ -95,6 +95,7 @@ htmlbtn.addEventListener('click', () =>
   gradientContainer.style.display = 'none';
   nadpis.style.top = '-180px';
   fadeInNadpis();
+  preloadImages();
 });
 
 // CSS
