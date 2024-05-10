@@ -30,7 +30,7 @@ const jsContent =
   '/prehled/JS/js4.jpg',
   '/prehled/JS/js5.jpg',
   '/prehled/JS/js6.jpg',
-  '/prehled/js/js7.jpg',
+  '/prehled/JS/js7.jpg',
   '/prehled/JS/js8.jpg',
   '/prehled/JS/js9.jpg'
 ];
