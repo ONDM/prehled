@@ -22,12 +22,9 @@ body
   animation: rotate var(--speed) var(--easing) alternate infinite;
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   z-index: -1;
-  position: absolute;
-  top: 50%;
-  left: 22%;
-  right: 0;
-  bottom: 0;
-  margin: auto;
+  position: fixed;
+  top: 55%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
