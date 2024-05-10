@@ -1,19 +1,14 @@
 body
 {
-  font-family: 'font', Arial, sans-serif;
+  font-family: Arial, sans-serif;
   background-color: #141414;
   height: 100vh;
   overflow: hidden;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-/*@font-face
-{
-  font-family: 'font';
-  src: url('/prehled/font.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}*/
 
 .gradient
 {
@@ -28,25 +23,20 @@ body
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   z-index: -1;
   position: fixed;
-}
-
-#gradient-container
-{
-  position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-150px, -125px);
+  transform: translate(-50%, -50%);
 }
 
 @keyframes rotate
 {
   0%
   {
-    transform: rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
   }
   100%
   {
-    transform: rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
@@ -59,39 +49,52 @@ body
 
 #nadpis
 {
-  font-family: 'font', Arial, sans-serif;
-  color: #d9d9d9;
-  font-size: 30px;
-  transform: translate(0px, 120px);
+  color: transparent; /* Zamezuje problikávání černého textu uprostřed stránky, kvůli příkazům v JS */
+ /* příkazy jsou vloženy v JS ve funkci function setInitialNadpisPosition() */
 }
 
 button
 {
-  font-family: 'font', Arial, sans-serif;
+  font-family: Arial, sans-serif;
   display: block;
-  justify-content: center;
   margin: 15px auto;
   font-size: 22px;
   cursor: pointer;
-  background-color: rgb(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   color: #d8d7d6;
   border: none;
   border-radius: 8px;
   transition: background-color 0.5s ease;
   width: 180px;
   height: 80px;
-  transform: translate(0px, 150px);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 button:hover
 {
-  background-color: rgb(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#htmlbtn
+{
+  top: calc(50% - 100px);
+}
+
+#cssbtn
+{
+  top: calc(50%);
+}
+
+#jsbtn
+{
+  top: calc(50% + 100px);
 }
 
 #backbtn, #nextbtn, #prevbtn
 {
-  font-family: 'font', Arial, sans-serif;
-  background-color: rgb(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease;
   width: 70px;
   height: 35px;
@@ -103,21 +106,24 @@ button:hover
 #backbtn
 {
   color: #d08b8b;
-  left: calc(42.5% - 103.5px);
-  top: -99.5px;
+  left: 38%;
+  transform: translateX(-50%);
+  top: 49px;
 }
 
 #nextbtn
 {
-  left: calc(62.3% - 39.5px);
-  top: -99.5px;
+  left: 62%;
+  transform: translateX(-50%);
+  top: 49px;
 }
 
 #prevbtn
 {
-  left: calc(57.8% - 67.5px);
-  top: -99.5px;
-  width: 90px;
+  left: 56.5%;
+  transform: translateX(-50%);
+  top: 49px;
+  width: 80px;
 }
 
 #backbtn:hover, #nextbtn:hover, #prevbtn:hover
@@ -152,32 +158,28 @@ button:hover
   opacity: 0.1;
 }
 
-
 @media screen and (max-width: 1300px)
 {
   #backbtn
   {
     width: 7%;
-    top: -142.5px;
-    left: 59%;
-    justify-content: center;
-    color: #d08b8b;
+    top: 15px;
+    height: 35px;
+    left: 62.5%;
   }
 
   #prevbtn
   {
     width: 32%;
-    top: -98.5px;
-    left: 34%;
-    justify-content: center;
+    top: 55px;
+    left: 50%;
   }
 
   #nextbtn
   {
     width: 32%;
-    top: -60px;
-    left: 34%;
-    justify-content: center;
+    top: 95px;
+    left: 50%;
   }
 
   #image
@@ -191,26 +193,21 @@ button:hover
   #backbtn
   {
     width: 12%;
-    top: -142.5px;
-    left: 68%;
-    justify-content: center;
-    color: #d08b8b;
+    top: 15px;
+    height: 35px;
+    left: 74%;
   }
 
   #prevbtn
   {
     width: 60%;
-    top: -98.5px;
-    left: 20%;
-    justify-content: center;
+    top: 55px;
   }
 
   #nextbtn
   {
     width: 60%;
-    top: -60px;
-    left: 20%;
-    justify-content: center;
+    top: 95px;
   }
 
   #image
@@ -219,32 +216,26 @@ button:hover
   }
 }
 
-
 @media only screen and (max-width: 393px)
 {
   #backbtn
   {
     width: 20%;
-    top: -143px;
-    left: 70%;
-    justify-content: center;
-    color: #d08b8b;
+    top: 15px;
+    height: 35px;
+    left: 90%;
   }
 
   #prevbtn
   {
     width: 100%;
-    top: -99.5px;
-    left: 0%;
-    justify-content: center;
+    top: 55px;
   }
 
   #nextbtn
   {
     width: 100%;
-    top: -59.5px;
-    left: 0%;
-    justify-content: center;
+    top: 95px;
   }
 
   #image
