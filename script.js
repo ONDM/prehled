@@ -1,6 +1,6 @@
 const htmlContent =
 [
-  '/prehled/HTML/html1.jpg',
+  'HTML/html1.jpg',
   '/prehled/HTML/html2.jpg',
   '/prehled/HTML/html3.jpg',
   '/prehled/HTML/html4.jpg',
@@ -30,7 +30,7 @@ const jsContent =
   '/prehled/JS/js4.jpg',
   '/prehled/JS/js5.jpg',
   '/prehled/JS/js6.jpg',
-  '/prehled/JS/js7.jpg',
+  '/prehled/js/js7.jpg',
   '/prehled/JS/js8.jpg',
   '/prehled/JS/js9.jpg'
 ];
@@ -48,7 +48,29 @@ const gradientContainer = document.getElementById('gradient-container');
 let imageIndex = 0;
 let content = [];
 
-// FUNKCE PRO PŘEDČÍTÁNÍ OBRÁZKŮ
+// Nastavení úvodní pozice nadpisu
+function setInitialNadpisPosition()
+{
+  nadpis.style.fontFamily = 'Arial, sans-serif';
+  nadpis.style.color = '#d9d9d9';
+  nadpis.style.fontSize = '30px';
+  nadpis.style.position = 'relative';
+  nadpis.style.top = '30%';
+  nadpis.style.left = '50%';
+  nadpis.style.transform = 'translate(-50%, -130px)';
+  nadpis.style.zIndex = '2';
+}
+// Nastavení úvodní pozici nadpisu
+setInitialNadpisPosition();
+
+// Nastavení pozice nadpisu po stisknutí tlačítka menu
+function resetNadpisPosition()
+{
+  nadpis.style.position = 'relative';
+  nadpis.style.top = '30%';
+}
+
+// Přednačítání pro HTML, CSS, JS
 function preloadImages(imageUrls)
 {
   imageUrls.forEach(url =>
@@ -57,8 +79,6 @@ function preloadImages(imageUrls)
     img.src = url;
   });
 }
-
-// PŘEDNAČÍTÁNÍ PRO HTML, CSS, JS
 preloadImages(htmlContent);
 preloadImages(cssContent);
 preloadImages(jsContent);
@@ -73,6 +93,8 @@ htmlbtn.addEventListener('click', () =>
   nadpis.textContent = 'HTML';
   toggleButtons();
   gradientContainer.style.display = 'none';
+  nadpis.style.top = '-180px';
+  fadeInNadpis();
 });
 
 // CSS
@@ -85,6 +107,8 @@ cssbtn.addEventListener('click', () =>
   nadpis.textContent = 'CSS';
   toggleButtons();
   gradientContainer.style.display = 'none';
+  nadpis.style.top = '-180px';
+  fadeInNadpis();
 });
 
 // JS
@@ -97,33 +121,35 @@ jsbtn.addEventListener('click', () =>
   nadpis.textContent = 'JavaScript';
   toggleButtons();
   gradientContainer.style.display = 'none';
+  nadpis.style.top = '-180px';
+  fadeInNadpis();
 });
 
-// TLAČÍTKO DALŠÍ
+// Tlačítko Další
 nextbtn.addEventListener('click', () =>
 {
   imageIndex = (imageIndex + 1) % content.length;
   displayImage();
 });
 
-// TLAČÍTKO PŘEDCHOZÍ
+// Tlačítko Předchozí
 prevbtn.addEventListener('click', () =>
 {
   imageIndex = (imageIndex - 1 + content.length) % content.length;
   displayImage();
 });
 
-// TLAČÍTKO MENU
+// Tlačítko Menu
 backbtn.addEventListener('click', () =>
 {
-  resetNadpisPosition1();
+  resetNadpisPosition();
   contentDiv.innerHTML = '';
   nadpis.textContent = 'PŘEHLED PŘÍKAZŮ';
   toggleButtons();
   gradientContainer.style.display = 'block';
 });
 
-// ŠIPKY PRO OVLÁDÁNÍ OBRÁZKŮ
+// Šipky pro ovládání obrázků
 document.addEventListener('keydown', (event) =>
 {
   if (event.key === 'ArrowRight')
@@ -138,7 +164,7 @@ document.addEventListener('keydown', (event) =>
   }
   if (event.key === 'Escape' && contentDiv.innerHTML !== '')
   {
-    resetNadpisPosition1();
+    resetNadpisPosition();
     contentDiv.innerHTML = '';
     nadpis.textContent = 'PŘEHLED PŘÍKAZŮ';
     toggleButtons();
@@ -164,18 +190,6 @@ function displayImage()
   contentDiv.innerHTML = `<img src="${imageSrc}" id="image">`;
 }
 
-function resetNadpisPosition()
-{
-  nadpis.style.position = 'relative';
-  nadpis.style.top = '-125px';
-}
-
-function resetNadpisPosition1()
-{
-  nadpis.style.top = '0px';
-}
-
-
 let startX = 0;
 let isDragging = false;
 
@@ -189,7 +203,7 @@ function touchStart(event)
   isDragging = true;
 }
 
-// SWIPE NA MOBILU
+// Swipe na mobilu
 function touchMove(event)
 {
   if (!isDragging) return;
@@ -198,28 +212,44 @@ function touchMove(event)
 
   if (deltaX > 50)
   {
-    // SWIPE DOPRAVA
+    // Swipe doprava
     imageIndex = (imageIndex - 1 + content.length) % content.length;
     displayImage();
     isDragging = false;
   }
   if (deltaX < -50)
   {
-    // SWIPE DOLEVA
+    // Swipe doleva
     imageIndex = (imageIndex + 1) % content.length;
     displayImage();
     isDragging = false;
   }
 }
 
-// SW
-if ('serviceWorker' in navigator)
+
+// Animace nadpisu
+function fadeInNadpis()
 {
-  navigator.serviceWorker.register('sw.js').then(() =>
+  nadpis.style.opacity = '0';
+  nadpis.style.display = 'block';
+  const duration = 500;
+  let startTime = null;
+
+  function animate(currentTime)
+  {
+    if (!startTime)
     {
-      console.log('Service Worker úspěšně spuštěn. Offline režim aktivován.');
-    }).catch(error =>
+      startTime = currentTime;
+    }
+    const elapsedTime = currentTime - startTime;
+    const progress = Math.min(elapsedTime / duration, 1);
+
+    nadpis.style.opacity = progress;
+
+    if (progress < 1)
     {
-      console.log('Registrace Service Workera selhala:', error);
-    });
+      requestAnimationFrame(animate);
+    }
+  }
+  requestAnimationFrame(animate);
 }
