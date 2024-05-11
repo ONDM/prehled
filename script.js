@@ -201,29 +201,6 @@ function touchMove(event) {
   }
 }
 
-// Animace nadpisu
-function fadeInNadpis() {
-  nadpis.style.opacity = '0';
-  nadpis.style.display = 'block';
-  const duration = 500;
-  let startTime = null;
-
-  function animate(currentTime) {
-    if (!startTime) {
-      startTime = currentTime;
-    }
-    const elapsedTime = currentTime - startTime;
-    const progress = Math.min(elapsedTime / duration, 1);
-
-    nadpis.style.opacity = progress;
-
-    if (progress < 1) {
-      requestAnimationFrame(animate);
-    }
-  }
-  requestAnimationFrame(animate);
-}
-
 // SW
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/prehled/sw.js').then(() => {
