@@ -92,7 +92,7 @@ htmlbtn.addEventListener('click', () =>
   nadpis.textContent = 'HTML';
   toggleButtons();
   gradientContainer.style.display = 'none';
-  nadpis.style.top = '-190px';
+  nadpis.style.top = '-180px';
   fadeInNadpis();
 });
 
