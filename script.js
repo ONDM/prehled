@@ -1,4 +1,5 @@
-const htmlContent = [
+const htmlContent =
+  [
   '/prehled/HTML/html1.jpg',
   '/prehled/HTML/html2.jpg',
   '/prehled/HTML/html3.jpg',
@@ -10,7 +11,8 @@ const htmlContent = [
   '/prehled/HTML/html9.jpg'
 ];
 
-const cssContent = [
+const cssContent =
+  [
   '/prehled/CSS/css1.jpg',
   '/prehled/CSS/css2.jpg',
   '/prehled/CSS/css3.jpg',
@@ -20,7 +22,8 @@ const cssContent = [
   '/prehled/CSS/css7.jpg'
 ];
 
-const jsContent = [
+const jsContent =
+  [
   '/prehled/JS/js1.jpg',
   '/prehled/JS/js2.jpg',
   '/prehled/JS/js3.jpg',
@@ -46,7 +49,8 @@ let imageIndex = 0;
 let content = [];
 
 // Nastavení úvodní pozice nadpisu
-function setInitialNadpisPosition() {
+function setInitialNadpisPosition()
+{
   nadpis.style.fontFamily = 'Arial, sans-serif';
   nadpis.style.color = '#d9d9d9';
   nadpis.style.fontSize = '30px';
@@ -60,13 +64,15 @@ function setInitialNadpisPosition() {
 setInitialNadpisPosition();
 
 // Nastavení pozice nadpisu po stisknutí tlačítka menu
-function resetNadpisPosition() {
+function resetNadpisPosition()
+{
   nadpis.style.position = 'relative';
   nadpis.style.top = '-30px';
 }
 
 // Přednačítání pro HTML, CSS, JS
-function preloadImages(imageUrls) {
+function preloadImages(imageUrls)
+{
   imageUrls.forEach(url => {
     const img = new Image();
     img.src = url;
@@ -77,86 +83,98 @@ preloadImages(cssContent);
 preloadImages(jsContent);
 
 // HTML
-htmlbtn.addEventListener('click', () => {
+htmlbtn.addEventListener('click', () =>
+{
   resetNadpisPosition();
   content = htmlContent;
   imageIndex = 0;
   displayImage();
   toggleButtons();
   gradientContainer.style.display = 'none';
-  nadpis.style.display = 'none'; // Skryje nadpis po kliknutí na HTML tlačítko
+  nadpis.style.display = 'none';
   fadeInNadpis();
 });
 
 // CSS
-cssbtn.addEventListener('click', () => {
+cssbtn.addEventListener('click', () =>
+{
   resetNadpisPosition();
   content = cssContent;
   imageIndex = 0;
   displayImage();
   toggleButtons();
   gradientContainer.style.display = 'none';
-  nadpis.style.display = 'none'; // Skryje nadpis po kliknutí na CSS tlačítko
+  nadpis.style.display = 'none';
   fadeInNadpis();
 });
 
 // JS
-jsbtn.addEventListener('click', () => {
+jsbtn.addEventListener('click', () =>
+{
   resetNadpisPosition();
   content = jsContent;
   imageIndex = 0;
   displayImage();
   toggleButtons();
   gradientContainer.style.display = 'none';
-  nadpis.style.display = 'none'; // Skryje nadpis po kliknutí na JS tlačítko
+  nadpis.style.display = 'none';
   fadeInNadpis();
 });
 
 // Tlačítko Další
-nextbtn.addEventListener('click', () => {
+nextbtn.addEventListener('click', () =>
+{
   imageIndex = (imageIndex + 1) % content.length;
   displayImage();
 });
 
 // Tlačítko Předchozí
-prevbtn.addEventListener('click', () => {
+prevbtn.addEventListener('click', () =>
+{
   imageIndex = (imageIndex - 1 + content.length) % content.length;
   displayImage();
 });
 
 // Tlačítko Menu
-backbtn.addEventListener('click', () => {
+backbtn.addEventListener('click', () =>
+{
   resetNadpisPosition();
   contentDiv.innerHTML = '';
   nadpis.textContent = 'PŘEHLED PŘÍKAZŮ';
   toggleButtons();
   gradientContainer.style.display = 'block';
-  nadpis.style.display = 'block'; // Znovu zobrazí nadpis po kliknutí na tlačítko Menu
+  nadpis.style.display = 'block';
 });
 
 // Šipky pro ovládání obrázků
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'ArrowRight') {
+document.addEventListener('keydown', (event) =>
+{
+  if (event.key === 'ArrowRight')
+  {
     imageIndex = (imageIndex + 1) % content.length;
     displayImage();
   }
-  if (event.key === 'ArrowLeft') {
+  if (event.key === 'ArrowLeft')
+  {
     imageIndex = (imageIndex - 1 + content.length) % content.length;
     displayImage();
   }
-  if (event.key === 'Escape' && contentDiv.innerHTML !== '') {
+  if (event.key === 'Escape' && contentDiv.innerHTML !== '')
+  {
     resetNadpisPosition();
     contentDiv.innerHTML = '';
     nadpis.textContent = 'PŘEHLED PŘÍKAZŮ';
     toggleButtons();
     gradientContainer.style.display = 'block';
-    nadpis.style.display = 'block'; // Znovu zobrazí nadpis po stisknutí klávesy Escape
+    nadpis.style.display = 'block';
   }
 });
 
-function toggleButtons() {
+function toggleButtons()
+{
   const buttons = document.querySelectorAll('.buttons button:not(#backbtn):not(#nextbtn):not(#prevbtn)');
-  buttons.forEach(button => {
+  buttons.forEach(button =>
+  {
     button.style.display = button.style.display === 'none' ? '' : 'none';
   });
   backbtn.style.display = backbtn.style.display === 'none' ? '' : 'none';
@@ -164,7 +182,8 @@ function toggleButtons() {
   prevbtn.style.display = prevbtn.style.display === 'none' ? '' : 'none';
 }
 
-function displayImage() {
+function displayImage()
+{
   const imageSrc = content[imageIndex];
   contentDiv.innerHTML = `<img src="${imageSrc}" id="image">`;
 }
@@ -175,25 +194,29 @@ let isDragging = false;
 contentDiv.addEventListener('touchstart', touchStart, false);
 contentDiv.addEventListener('touchmove', touchMove, false);
 
-function touchStart(event) {
+function touchStart(event)
+{
   const touch = event.touches[0];
   startX = touch.clientX;
   isDragging = true;
 }
 
 // Swipe na mobilu
-function touchMove(event) {
+function touchMove(event)
+{
   if (!isDragging) return;
   const touch = event.touches[0];
   const deltaX = touch.clientX - startX;
 
-  if (deltaX > 50) {
+  if (deltaX > 50)
+  {
     // Swipe doprava
     imageIndex = (imageIndex - 1 + content.length) % content.length;
     displayImage();
     isDragging = false;
   }
-  if (deltaX < -50) {
+  if (deltaX < -50)
+  {
     // Swipe doleva
     imageIndex = (imageIndex + 1) % content.length;
     displayImage();
@@ -202,10 +225,13 @@ function touchMove(event) {
 }
 
 // SW
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/prehled/sw.js').then(() => {
+if ('serviceWorker' in navigator)
+{
+  navigator.serviceWorker.register('/prehled/sw.js').then(() =>
+  {
     console.log('Service Worker úspěšně spuštěn. Offline režim aktivován.');
-  }).catch(error => {
+  }).catch(error =>
+  {
     console.log('Registrace Service Workera selhala:', error);
   });
 }
