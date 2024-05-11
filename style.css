@@ -79,17 +79,17 @@ button:hover
 
 #htmlbtn
 {
-  top: calc(50% - 100px);
+  top: calc(45% - 100px);
 }
 
 #cssbtn
 {
-  top: calc(50%);
+  top: calc(45%);
 }
 
 #jsbtn
 {
-  top: calc(50% + 100px);
+  top: calc(45% + 100px);
 }
 
 #backbtn, #nextbtn, #prevbtn
