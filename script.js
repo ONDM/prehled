@@ -84,7 +84,7 @@ htmlbtn.addEventListener('click', () => {
   displayImage();
   toggleButtons();
   gradientContainer.style.display = 'none';
-  nadpis.style.top = '-180px';
+  nadpis.style.display = 'none'; // Skryje nadpis po kliknutí na HTML tlačítko
   fadeInNadpis();
 });
 
@@ -96,7 +96,7 @@ cssbtn.addEventListener('click', () => {
   displayImage();
   toggleButtons();
   gradientContainer.style.display = 'none';
-  nadpis.style.top = '-180px';
+  nadpis.style.display = 'none'; // Skryje nadpis po kliknutí na CSS tlačítko
   fadeInNadpis();
 });
 
@@ -108,7 +108,7 @@ jsbtn.addEventListener('click', () => {
   displayImage();
   toggleButtons();
   gradientContainer.style.display = 'none';
-  nadpis.style.top = '-180px';
+  nadpis.style.display = 'none'; // Skryje nadpis po kliknutí na JS tlačítko
   fadeInNadpis();
 });
 
@@ -131,6 +131,7 @@ backbtn.addEventListener('click', () => {
   nadpis.textContent = 'PŘEHLED PŘÍKAZŮ';
   toggleButtons();
   gradientContainer.style.display = 'block';
+  nadpis.style.display = 'block'; // Znovu zobrazí nadpis po kliknutí na tlačítko Menu
 });
 
 // Šipky pro ovládání obrázků
@@ -149,6 +150,7 @@ document.addEventListener('keydown', (event) => {
     nadpis.textContent = 'PŘEHLED PŘÍKAZŮ';
     toggleButtons();
     gradientContainer.style.display = 'block';
+    nadpis.style.display = 'block'; // Znovu zobrazí nadpis po stisknutí klávesy Escape
   }
 });
 
@@ -199,7 +201,6 @@ function touchMove(event) {
   }
 }
 
-
 // Animace nadpisu
 function fadeInNadpis() {
   nadpis.style.opacity = '0';
@@ -225,11 +226,9 @@ function fadeInNadpis() {
 
 // SW
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/prehled/sw.js').then(() =>
-    {
-      console.log('Service Worker úspěšně spuštěn. Offline režim aktivován.');
-    }).catch(error =>
-    {
-      console.log('Registrace Service Workera selhala:', error);
-    });
+  navigator.serviceWorker.register('/prehled/sw.js').then(() => {
+    console.log('Service Worker úspěšně spuštěn. Offline režim aktivován.');
+  }).catch(error => {
+    console.log('Registrace Service Workera selhala:', error);
+  });
 }
