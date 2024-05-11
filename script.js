@@ -53,7 +53,7 @@ function setInitialNadpisPosition() {
   nadpis.style.position = 'relative';
   nadpis.style.top = '30%';
   nadpis.style.left = '50%';
-  nadpis.style.transform = 'translate(-50%, -120px)';
+  nadpis.style.transform = 'translate(-50%, -130px)';
   nadpis.style.zIndex = '2';
 }
 // Nastavení úvodní pozici nadpisu
