@@ -51,7 +51,7 @@ function setInitialNadpisPosition() {
   nadpis.style.color = '#d9d9d9';
   nadpis.style.fontSize = '30px';
   nadpis.style.position = 'relative';
-  nadpis.style.top = '30%';
+  nadpis.style.top = '27%';
   nadpis.style.left = '50%';
   nadpis.style.transform = 'translate(-50%, -130px)';
   nadpis.style.zIndex = '2';
@@ -62,7 +62,7 @@ setInitialNadpisPosition();
 // Nastavení pozice nadpisu po stisknutí tlačítka menu
 function resetNadpisPosition() {
   nadpis.style.position = 'relative';
-  nadpis.style.top = '30%';
+  nadpis.style.top = '27%';
 }
 
 // Přednačítání pro HTML, CSS, JS
