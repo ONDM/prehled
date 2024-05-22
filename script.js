@@ -124,7 +124,7 @@ backbtn.addEventListener('click', () =>
 {
   resetNadpisPosition();
   contentDiv.innerHTML = '';
-  nadpis.textContent = 'PŘEHLED PŘÍKAZŮ';
+  nadpis.textContent = 'PŘEHLED';
   toggleButtons();
   gradientContainer.style.display = 'block';
   nadpis.style.display = 'block';
@@ -147,7 +147,7 @@ document.addEventListener('keydown', (event) =>
   {
     resetNadpisPosition();
     contentDiv.innerHTML = '';
-    nadpis.textContent = 'PŘEHLED PŘÍKAZŮ';
+    nadpis.textContent = 'PŘEHLED';
     toggleButtons();
     gradientContainer.style.display = 'block';
     nadpis.style.display = 'block';
